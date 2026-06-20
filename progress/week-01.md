@@ -155,17 +155,77 @@ GitHub 仓库已经显示本地提交记录，说明同步成功。
 ## Day 3
 
 ### 今日学习内容
-
+学习内容	对应命令 / 操作演示
+学会检查当前项目是否已经被 Git 管理	git status
+理解当前分支不是主分支，而是实验分支	On branch codex/ui-experiment
+理解 No commits yet 的含义	当前仓库还没有任何 Git 提交记录
+学会查看隐藏文件和项目根目录内容	dir -Force
+学会创建 .gitignore 文件	notepad .gitignore
+学会排除不适合上传 GitHub 的本地配置文件	在 .gitignore 中加入 project.private.config.json
+学会把已经加入暂存区的文件移除	git rm --cached project.private.config.json
+理解 git rm --cached 不会删除本地文件	只是让 Git 不再准备提交这个文件
+学会把项目修改加入暂存区	git add .
+理解 Git 的换行符 warning 不是错误	LF will be replaced by CRLF
+学会确认暂存区文件是否正确	git status
+学会在当前分支完成第一次提交	git commit -m "初始化微信小程序项目"
+学会查看所有分支的提交历史	git log --oneline --all
+理解 VS Code 中“发布 Branch”的含义	相当于 git push -u origin 当前分支名
+理解 GitHub 仓库最好一个仓库存放一个项目	不相关项目分开管理，同一产品的多个部分可以放在同一仓库
+学会 GitHub 网页上修改仓库名	仓库页面 → Settings → Repository name → Rename
+学会 GitHub 网页上删除仓库	仓库页面 → Settings → Danger Zone → Delete this repository
 ### 今日实操
+今天处理了一个微信小程序项目，项目路径是：
 
+C:\Users\李潇然\Desktop\u校集2.0
+
+先检查 Git 状态：
+
+git status
+
+发现当前项目还没有第一次提交，并且当前分支是：
+
+codex/ui-experiment
+
+随后创建 .gitignore：
+
+notepad .gitignore
+
+并排除了微信开发者工具的本地私人配置：
+
+project.private.config.json
+
+因为这个文件之前已经进入暂存区，所以执行：
+
+git rm --cached project.private.config.json
+
+然后加入剩余修改并完成第一次提交：
+
+git add .
+git commit -m "初始化微信小程序项目"
+
+提交成功：
+
+585d68f 初始化微信小程序项目
 ### 遇到的问题
+今天主要遇到三个问题：
+
+.gitignore 创建后，project.private.config.json 仍然在提交列表里。原因是它之前已经被加入暂存区，需要用 git rm --cached 移除。
+git branch 没有显示内容。原因是当时仓库还没有第一次 commit。
+VS Code 里的“发布 Branch”不是发布微信小程序，而是把当前 Git 分支上传到 GitHub。
 
 ### 今日总结
+今天学会了在提交真实项目之前，先检查哪些文件不应该上传。
 
+最重要的是：
+
+提交前先检查 git status。
+私人配置文件要写进 .gitignore。
+已经进入暂存区的文件，需要用 git rm --cached 移除。
 ### 是否完成
 
 ### commit 链接
-
+今日 commit
+585d68f 初始化微信小程序项目
 ## Day 4
 
 ### 今日学习内容
